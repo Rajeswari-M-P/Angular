@@ -1,0 +1,97 @@
+ <!-- <-- <app-add-product> -->  
+
+ <div class="container mt-4">
+    <div class="row">
+     
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="mb-0">🎀 Product 𝓅𝒶𝑔𝑒</h2>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="onSubmit()"  >
+               
+
+              <div class="form-group mb-4">
+                <label for="name" class="col-sm-3 col-form-label">Product Name:</label>
+                <input type="text" id="name" name="name" class="form-control" [(ngModel)]="name" required>
+                <div class="invalid-feedback">Please enter the product name.</div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="color" class="col-sm-3 col-form-label">Product Color:</label>
+                <select id="color" name="color" class="form-select" [(ngModel)]="productColor" required>
+                  <option value="" disabled selected>Select color</option>
+                  <option value=" #ff8566">Red</option>
+                  <option value=" #8080ff">Blue</option>
+                  <option value="#85e085">Green</option>
+                </select>
+                <div class="invalid-feedback">Please select a product color.</div>
+              </div>
+              <div class="form-group mb-4">
+                <label for="quantity" class="col-sm-3 col-form-label">Product Quantity:</label>
+                
+                <input type="number" id="quantity" name="quantity" class="form-control" [(ngModel)]="productQuantity" min="1" required>
+                <div class="invalid-feedback">Please enter a valid quantity (1 or more).</div>
+              </div>
+              
+               <button type="submit" class="btn btn-primary"  >Add to cart</button>
+              
+
+            </form>
+          </div>
+        </div>
+      </div>
+   
+     
+ <!-- <p>added-products works!</p> -->
+
+
+
+ 
+<div class="col-md-6">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="mb-0"> 𝒞𝒶𝓇𝓉 𝒫𝒶𝑔𝑒 🛒</h2>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped table-bordered">
+        <thead class="table">
+          <tr>
+            <th scope="col">♥ Product Name ♥</th>
+            <th scope="col">♥ Product Color ♥</th>
+            <!-- <th scope="col">♥ Product Quantity ♥</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr *ngFor="let product of productAdded">
+            <td>{{ product.name }}</td>
+            <td>{{ product.productColor }}</td> 
+            <td>{{ product.productQuantity }}</td>
+
+            <td> -->
+
+                 <!-- <tr *ngIf="product">
+            <td [style.backgroundColor]="product.name" class="text-white">{{ product.name }}</td>
+            <td [style.backgroundColor]="product.productColor" class="text-white">{{ product.productColor }}</td>
+            <td [style.backgroundColor]="product.productQuantity" class="text-white">{{ product.productQuantity }}</td>
+           
+          </tr>  -->
+
+          <tr *ngFor="let product of productAdded">
+            <td [style.backgroundColor]="product.productColor" class="text-white">{{ product.name }}</td>
+            <td [style.backgroundColor]="product.productColor" class="text-white">{{ product.productQuantity }}</td>
+          </tr>
+
+        
+        </tbody>
+      </table>
+     
+    
+     
+    </div>
+  </div>
+  <br>
+<button type="submit" class="btn btn-secondary btn-sm" (click)="navigateToAddedProducts()">View Added Products</button>
+</div>
+</div> 

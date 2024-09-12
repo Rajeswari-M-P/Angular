@@ -1,0 +1,177 @@
+ <!-- <p>added-products works!</p>
+
+
+
+<div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="mb-0"> 𝒞𝒶𝓇𝓉 𝒫𝒶𝑔𝑒 🛒</h2>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped table-bordered">
+          <thead class="table">
+            <tr>
+              <th scope="col">♥ Product Name ♥</th>
+              <th scope="col">♥ Product Quantity ♥</th>
+              <th scope="col">♥ Actions ♥</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of productAdded">
+              <td>{{ product.name }}</td>
+              <td>{{ product.productQuantity }}</td>
+               <td>{{ product.productQuantity }}</td> 
+              <td>
+
+                  <tr *ngIf="product">
+              <td [style.backgroundColor]="product.name" class="text-white">{{ product.name }}</td>
+              <td [style.backgroundColor]="product.productQuantity" class="text-white">{{ product.productQuantity }}</td>
+              <td>
+
+                <button class="btn btn-sm btn-warning me-2" (click)="editProduct(product)">Edit</button>
+                <button class="btn btn-sm btn-danger" (click)="deleteProduct(product)">Delete</button>
+              </td>
+            </tr>
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <tr *ngIf="product">
+              <td [style.backgroundColor]="product.name" class="text-white">{{ product.name }}</td>
+              <td [style.backgroundColor]="product.quantity" class="text-white">{{ product.quantity }}</td>
+              <td>
+                <button class="btn btn-sm btn-warning me-2" (click)="editProduct(product)">Edit</button>
+                <button class="btn btn-sm btn-danger" (click)="deleteProduct(product)">Delete</button>
+              </td>
+          </tr> -->
+          <!-- </tbody>
+        </table>
+       
+      
+        <button  class="btn btn-primary" >Add record</button>
+       
+      </div>
+    </div>
+  </div>    -->
+
+
+
+
+  <!-- <div *ngIf="selectedProduct">
+    <h3>Edit Product</h3>
+    <form (ngSubmit)="updateProduct()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Product Name</label>
+        <input id="name" class="form-control" [(ngModel)]="selectedProduct.name" name="name" required />
+      </div>
+      <div class="mb-3">
+        <label for="color" class="form-label">Product Color</label>
+        <input id="color" class="form-control" [(ngModel)]="selectedProduct.productColor" name="productColor" required />
+      </div>
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Product Quantity</label>
+        <input id="quantity" class="form-control" type="number" [(ngModel)]="selectedProduct.productQuantity" name="productQuantity" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Update Product</button>
+    </form>
+  </div> -->
+
+
+  <!-- <h2>Product Details</h2>
+  <table border="1">
+    <tr>
+      <th>Product Name</th>
+      <th>Product Color</th>
+      <th>Product Quantity</th>
+    </tr>
+    <tr *ngIf="product">
+      <td>{{ product.name }}</td>
+      <td>{{ product.productColor }}</td>
+      <td>{{ product.quantity }}</td>
+    </tr>
+  </table> -->
+
+  <!-- <table border="1">
+    <tr>
+      <th>Product Name</th>
+      <th>Product Color</th>
+      <th>Product Quantity</th>
+    </tr>
+  <tr *ngFor="let product of product">
+    <td>{{ product.name }}</td>
+    <td>{{ product.productColor }}</td>
+    <td>{{ product.productQuantity }}</td>
+    <td>
+      <button class="btn btn-sm btn-warning me-2" (click)="editProduct(product)">Edit</button>
+      <button class="btn btn-sm btn-danger" (click)="deleteProduct(product)">Delete</button>
+    </td>
+  </tr>
+</table>   -->
+
+
+
+<!-- Add this section to your component's HTML template -->
+
+<div class="container mt-4">
+  <div class="row">
+    <!-- Button to fetch product details -->
+    <div class="col-md-12 mb-4">
+      <button class="btn btn-primary" (click)="fetchDataFromStoredIds()">Fetch Product Details</button>
+    </div>
+
+    <!-- Display product details if available -->
+    <div class="col-md-12" >
+      <li *ngFor="let item of data" class="data-item">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="mb-0">Product Details</h2>
+        </div>
+        <div class="card-body">
+          <p><strong>Product Name:</strong> {{ item.name }}</p>
+          <p><strong>Product Color:</strong> {{ item.data.productColor }}</p>
+           <p><strong>Product Quantity:</strong> {{ item.data.productQuantity }}</p>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Message if no product details are available -->
+    <div *ngIf="data.length === 0" class="no-data-section">
+      <!-- <p class="no-data-message">No data available.</p> -->
+      <p>No product details available. Click the button to fetch details.</p>
+    </div>
+  </div>
+</div>
